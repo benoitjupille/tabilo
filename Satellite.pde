@@ -24,7 +24,7 @@ class Satellite{
     
     this.vecteur = new PVector();
     this.couleur = color(168, 26, 26);
-    this.diametre = 25;
+    this.diametre = 40;
     this.rayon = this.diametre / 2;
     
     this.angleDepart = 0;

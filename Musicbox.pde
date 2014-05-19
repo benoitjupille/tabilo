@@ -49,7 +49,7 @@ class Musicbox{
   // Calcul le rayon et le diametre de la ceinture
   void ajustements(){
     this.rayon = this.diametre / 2;
-    this.diametreCeinture = this.diametre + this.epaisseurStroke + 25;
+    this.diametreCeinture = this.diametre + this.epaisseurStroke + 50;
   }
   
   // Paramètres graphiques

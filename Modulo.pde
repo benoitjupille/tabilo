@@ -78,6 +78,27 @@ class Modulo extends Musicbox{
     }
   }
   
+  // Place automatiquement le modulo en fonction des coordonnées de la box à laquelle il est rattaché. 
+  // _box : box rattachée
+  // place : si c'est le premier ou deuxième modulo de la box en question(ou troisième etc)
+  void autoPosition(Musicbox _box, int _place){
+    if(_place==1){
+      this.setPosition(_box.vecteur.x - _box.diametre, _box.vecteur.y - _box.diametre);
+    }else{
+      if(_place==2){
+        this.setPosition(_box.vecteur.x + _box.diametre, _box.vecteur.y - _box.diametre);
+      }else{
+        if(_place==3){
+          this.setPosition(_box.vecteur.x + _box.diametre, _box.vecteur.y + _box.diametre);
+        }else{
+          if(_place==4){
+            this.setPosition(_box.vecteur.x - _box.diametre, _box.vecteur.y + _box.diametre);
+          }
+        }
+      }
+    }
+  }
+  
   /*------------------------------------------- FUNCTIONS */
   
   void render(Musicbox _musicbox){
