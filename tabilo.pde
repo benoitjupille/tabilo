@@ -28,8 +28,6 @@ void setup() {
   master = new Master();
   master.setPosition(width / 2, height / 2); // On place le Master au centre
   
- 
-  
   // Musicbox 0 : oscillateur
   boxes.add(new Musicbox("osc1"));
   boxes.get(0).initPosition(270, 270);

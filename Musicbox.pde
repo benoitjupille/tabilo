@@ -1,5 +1,6 @@
 /**************** CLASS MUSICBOX ****************/
-/* Une Musicbox est un élément auquel on attribue un son dans Pure Data */
+/* Une Musicbox est un élément auquel on attribue un son dans Pure Data 
+ Ils peuvent être un oscillateur ou un sampler */
 
 class Musicbox{
   

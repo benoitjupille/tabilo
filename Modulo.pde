@@ -1,3 +1,4 @@
+/* Les modulo sont les éléments rattachés à une Musicbox. Ils permettent de régler des paramètres (note, decay, attack...) */
 class Modulo extends Musicbox{
   
   /*-------------------------------------------  VARIABLES */
