@@ -24,6 +24,10 @@ class Musicbox{
   color couleurStroke; // Couleur de la bordure autour du rond
 
   float rayon; // diametre / 2
+  
+  // Variables pour le mouvement physique des éléments
+  float speedx;
+  float speedy;
  
  
   /*-------------------------------------------  CONSTRUCTEUR ET VALEURS PAR DEFAUT */

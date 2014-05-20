@@ -58,7 +58,6 @@ class General extends Musicbox{
   
   void setPdParmX(String _nomObjet, String _nomParametre, int _valeur){
     String nomEtParametre = _nomObjet + _nomParametre + "X";
-    print(nomEtParametre+ "=" + _valeur + " ");
     pd.sendFloat(nomEtParametre, _valeur);
   }
   
