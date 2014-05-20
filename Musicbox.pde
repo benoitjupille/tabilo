@@ -26,8 +26,10 @@ class Musicbox{
   float rayon; // diametre / 2
   
   // Variables pour le mouvement physique des éléments
-  float speedx;
-  float speedy;
+  float vitesseX;
+  float vitesseY;
+  float velocite=0.1;
+  float vitesseFinale=0;
  
  
   /*-------------------------------------------  CONSTRUCTEUR ET VALEURS PAR DEFAUT */
@@ -120,6 +122,27 @@ class Musicbox{
   void setPdParm(String _nomObjet, String _nomParametre, float _valeur){
     String nomEtParametre = _nomObjet + _nomParametre;
     pd.sendFloat(nomEtParametre, _valeur);
+  }
+  
+  void calculeVitesse(float _x, float _y){
+    this.vitesseX = _x - this.vecteur.x;
+    this.vitesseY = _y - this.vecteur.y;
+  }
+  
+  void ralentit(float _x, float _y){
+    if(abs(this.vitesseX) > 1){
+      this.vitesseX = _x - this.vecteur.x;
+      this.setPosition(this.vecteur.x + this.vitesseX * velocite, this.vecteur.y);
+    }
+    if(abs(this.vitesseY) > 1){
+      this.vitesseY = _y - this.vecteur.y;
+      this.setPosition(this.vecteur.x, this.vecteur.y + this.vitesseY * velocite);
+    }
+  }
+  
+  void resetvitesse(){
+    this.vitesseX = this.vitesseFinale;
+    this.vitesseY = this.vitesseFinale;
   }
   
   // Affichage GUI des satellites

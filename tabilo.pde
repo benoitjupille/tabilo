@@ -202,6 +202,9 @@ void draw(){
   
   for(int i=0; i<boxes.size(); i++){
     box = boxes.get(i);
+    if(box.vitesseX != 0 || box.vitesseY != 0){
+      box.ralentit(mouseX, mouseY);
+    }
     box.render();
     box.setVolume(master.vecteur);
   }
@@ -230,6 +233,7 @@ void mousePressed(){
     box = boxes.get(i);
     if(box.over() && oneIsLocked == 0){
       box.locked = true;
+      box.resetvitesse();
       oneIsLocked = 1;
     }else{
       for(int j=0; j<box.satellites.size(); j++){
@@ -267,7 +271,7 @@ void mouseDragged(){
   for(int i=0; i<boxes.size(); i++){
     box = boxes.get(i);
     if(box.locked){
-      box.setPosition(mouseX, mouseY);
+      box.calculeVitesse(mouseX, mouseY);
     }else{
       for(int k=0; k<box.satellites.size(); k++){
         sat = box.satellites.get(k);
@@ -301,6 +305,7 @@ void mouseReleased(){
   
   for(int i=0; i<boxes.size(); i++){
     box = boxes.get(i);
+    
     box.locked = false;
     for(int j=0; j<box.satellites.size(); j++){
       sat = box.satellites.get(j);
