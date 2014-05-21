@@ -25,11 +25,14 @@ class Musicbox{
 
   float rayon; // diametre / 2
   
-  // Variables pour le mouvement physique des éléments
-  float vitesseX;
-  float vitesseY;
-  float velocite=0.1;
-  float vitesseFinale=0;
+  // Variables pour la physique : quand on donne de l'élan à un élément
+  float vitesseX; // élan X
+  float vitesseY; // élan Y
+  float cibleX; // coordonnée x où l'élément va se rendre avec l'élan qu'on lui a donné
+  float cibleY; // coordonnée y où l'élément va se rendre avec l'élan qu'on lui a donné
+  float velocite=0.9; // Vitesse de ralentissement
+  float vitesseFinale=0; // Vitesse de l'élément sans élan
+  float vitesseMinimum=4; // élan minimum pour que ce soit pris en compte
  
  
   /*-------------------------------------------  CONSTRUCTEUR ET VALEURS PAR DEFAUT */
@@ -124,22 +127,41 @@ class Musicbox{
     pd.sendFloat(nomEtParametre, _valeur);
   }
   
+  // Calcul l'élan que l'on donne avec le mouvement de souris
   void calculeVitesse(float _x, float _y){
     this.vitesseX = _x - this.vecteur.x;
     this.vitesseY = _y - this.vecteur.y;
-  }
-  
-  void ralentit(float _x, float _y){
-    if(abs(this.vitesseX) > 1){
-      this.vitesseX = _x - this.vecteur.x;
-      this.setPosition(this.vecteur.x + this.vitesseX * velocite, this.vecteur.y);
+    if(abs(this.vitesseX) < vitesseMinimum){
+      this.vitesseX = this.vitesseFinale;
     }
-    if(abs(this.vitesseY) > 1){
-      this.vitesseY = _y - this.vecteur.y;
-      this.setPosition(this.vecteur.x, this.vecteur.y + this.vitesseY * velocite);
+    if(abs(this.vitesseY) < vitesseMinimum){
+      this.vitesseY = this.vitesseFinale;
     }
   }
   
+  // Calcule jusqu'où le point devrait se rendre grâce à l'élan
+  void calculeCible(float _x, float _y){
+    if(this.locked){
+      this.cibleX = _x + this.vitesseX;
+      this.cibleY = _y + this.vitesseY;
+    }
+  }
+  
+  // L'élément se déplace grâce à l'élan mais perd en vitesse
+  void ralentit(){
+    if(!this.locked){
+      if(this.vitesseX != this.vitesseFinale){
+        this.vitesseX = this.vitesseX * this.velocite;
+        this.setPosition(this.vecteur.x + this.vitesseX, this.vecteur.y);
+      }
+      if(this.vitesseY != this.vitesseFinale){
+        this.vitesseY = this.vitesseY * this.velocite;
+        this.setPosition(this.vecteur.x, this.vecteur.y + this.vitesseY);
+      }
+    }
+  }
+  
+  // Reset de l'élan à 0
   void resetvitesse(){
     this.vitesseX = this.vitesseFinale;
     this.vitesseY = this.vitesseFinale;

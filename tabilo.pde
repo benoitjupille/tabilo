@@ -202,20 +202,20 @@ void draw(){
   
   for(int i=0; i<boxes.size(); i++){
     box = boxes.get(i);
-    if(box.vitesseX != 0 || box.vitesseY != 0){
-      box.ralentit(mouseX, mouseY);
-    }
+    box.ralentit();
     box.render();
     box.setVolume(master.vecteur);
   }
   
   for(int i=0; i<modulos.size(); i++){
     mod = modulos.get(i);
+    mod.ralentit();
     mod.render(boxes.get(mod.linkedTo));
   }
   
   for(int i=0; i<generals.size(); i++){
     general = generals.get(i);
+    general.ralentit();
     general.render();
   }
 }
@@ -248,6 +248,7 @@ void mousePressed(){
   for(int i=0; i<modulos.size(); i++){
     mod = modulos.get(i);
     if(mod.over() && oneIsLocked == 0){
+      mod.resetvitesse();
       mod.locked = true;
       oneIsLocked = 1;
     }
@@ -256,6 +257,7 @@ void mousePressed(){
   for(int i=0; i<generals.size(); i++){
     general = generals.get(i);
     if(general.over() && oneIsLocked == 0){
+      general.resetvitesse();
       general.locked = true;
       oneIsLocked = 1;
     }
@@ -272,6 +274,7 @@ void mouseDragged(){
     box = boxes.get(i);
     if(box.locked){
       box.calculeVitesse(mouseX, mouseY);
+      box.setPosition(mouseX, mouseY);
     }else{
       for(int k=0; k<box.satellites.size(); k++){
         sat = box.satellites.get(k);
@@ -285,6 +288,7 @@ void mouseDragged(){
   for(int i=0; i<modulos.size(); i++){
     mod = modulos.get(i);
     if(mod.locked){
+      mod.calculeVitesse(mouseX, mouseY);
       mod.setPosition(mouseX, mouseY);
     }
   }
@@ -292,6 +296,7 @@ void mouseDragged(){
   for(int i=0; i<generals.size(); i++){
     general = generals.get(i);
     if(general.locked){
+      general.calculeVitesse(mouseX, mouseY);
       general.setPosition(mouseX, mouseY);
     }
   }
@@ -305,7 +310,7 @@ void mouseReleased(){
   
   for(int i=0; i<boxes.size(); i++){
     box = boxes.get(i);
-    
+    box.calculeCible(mouseX, mouseY);
     box.locked = false;
     for(int j=0; j<box.satellites.size(); j++){
       sat = box.satellites.get(j);
@@ -315,11 +320,13 @@ void mouseReleased(){
   
   for(int i=0; i<modulos.size(); i++){
     mod = modulos.get(i);
+    mod.calculeCible(mouseX, mouseY);
     mod.locked = false;
   }
   
   for(int i=0; i<generals.size(); i++){
     general = generals.get(i);
+    general.calculeCible(mouseX, mouseY);
     general.locked = false;
   }
 }
