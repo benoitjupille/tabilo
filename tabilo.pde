@@ -166,31 +166,35 @@ void setup() {
   boxes.get(7).satellites.get(0).setValeur(0);
   boxes.get(7).satellites.get(0).setCouleur(color(0, 168, 171));
   
-  // Musicbox 8 : snare1
-  boxes.add(new Musicbox("snare1"));
-  boxes.get(8).initPosition(width-160, height-60);
+  // Musicbox 8 : perc1
+  boxes.add(new Musicbox("perc1"));
+  boxes.get(8).initPosition(width-160, height-160);
   boxes.get(8).setForce(7);
   boxes.get(8).setAffichage(35, color(76, 184, 72), color(0, 114, 45), 8);
+  boxes.get(8).satellites.add(new Satellite("Cutoff"));
+  boxes.get(8).satellites.get(0).setValeur(127);
   boxes.get(8).satellites.add(new Satellite("Delay"));
-  boxes.get(8).satellites.get(0).setValeur(0);
-  boxes.get(8).satellites.get(0).setCouleur(color(0, 168, 171));
+  boxes.get(8).satellites.get(1).setValeur(0);
+  boxes.get(8).satellites.get(1).setCouleur(color(0, 168, 171));
   
-  // modulo1 linkedTo snare 1
+  // modulo1 linkedTo perc 1
   modulos.add(new Modulo("modulo1"));
   modulos.get(8).autoPosition(boxes.get(8), 1);
   modulos.get(8).setAffichage(35, color(250, 250, 250), color(76, 184, 72), 2);
   modulos.get(8).setLinkedTo(8);
   
-  // Musicbox 9 : snare2
-  boxes.add(new Musicbox("snare2"));
-  boxes.get(9).initPosition(width-60, height-60);
+  // Musicbox 9 : perc2
+  boxes.add(new Musicbox("perc2"));
+  boxes.get(9).initPosition(width-60, height-160);
   boxes.get(9).setForce(7);
   boxes.get(9).setAffichage(35, color(76, 184, 72), color(0, 114, 45), 8);
+  boxes.get(9).satellites.add(new Satellite("Cutoff"));
+  boxes.get(9).satellites.get(0).setValeur(127);
   boxes.get(9).satellites.add(new Satellite("Delay"));
-  boxes.get(9).satellites.get(0).setValeur(0);
-  boxes.get(9).satellites.get(0).setCouleur(color(0, 168, 171));
+  boxes.get(9).satellites.get(1).setValeur(0);
+  boxes.get(9).satellites.get(1).setCouleur(color(0, 168, 171));
   
-  // modulo1 linkedTo snare 2
+  // modulo1 linkedTo perc 2
   modulos.add(new Modulo("modulo1"));
   modulos.get(9).autoPosition(boxes.get(9), 1);
   modulos.get(9).setAffichage(35, color(250, 250, 250), color(76, 184, 72), 2);

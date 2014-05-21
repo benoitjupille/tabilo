@@ -15,7 +15,7 @@ class Modulo extends Musicbox{
   
   boolean grilleY;
   boolean grilleX;
-  
+    
   int[] grilleValeurX = new int[128];
   int[] grilleValeurY = new int[128];
   
