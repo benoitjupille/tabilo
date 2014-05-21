@@ -178,7 +178,7 @@ void setup() {
   // modulo1 linkedTo snare 1
   modulos.add(new Modulo("modulo1"));
   modulos.get(8).autoPosition(boxes.get(8), 1);
-  modulos.get(8).setAffichage(35, color(250, 250, 250), color(229, 121, 30), 2);
+  modulos.get(8).setAffichage(35, color(250, 250, 250), color(76, 184, 72), 2);
   modulos.get(8).setLinkedTo(8);
   
   // Musicbox 9 : snare2
@@ -189,6 +189,12 @@ void setup() {
   boxes.get(9).satellites.add(new Satellite("Delay"));
   boxes.get(9).satellites.get(0).setValeur(0);
   boxes.get(9).satellites.get(0).setCouleur(color(0, 168, 171));
+  
+  // modulo1 linkedTo snare 2
+  modulos.add(new Modulo("modulo1"));
+  modulos.get(9).autoPosition(boxes.get(9), 1);
+  modulos.get(9).setAffichage(35, color(250, 250, 250), color(76, 184, 72), 2);
+  modulos.get(9).setLinkedTo(9);
 }
 
 void draw(){
