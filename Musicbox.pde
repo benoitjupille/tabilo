@@ -124,6 +124,7 @@ class Musicbox{
   // Pour ensuite être transmis à une variable du même nom dans Pure Data
   void setPdParm(String _nomObjet, String _nomParametre, float _valeur){
     String nomEtParametre = _nomObjet + _nomParametre;
+    pd.sendFloat(nomEtParametre, _valeur);
   }
   
   // Calcul l'élan que l'on donne avec le mouvement de souris
