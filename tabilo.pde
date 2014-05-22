@@ -32,7 +32,7 @@ void setup() {
   /* Generals */
   // General 0 : tempo
   generals.add(new General("Tempo"));
-  generals.get(0).initPosition((width/2)+60, height/2);
+  generals.get(0).initPosition((width/2)-60, height/2);
   generals.get(0).setRangeX(30, 300);
   generals.get(0).setForce(4);
   generals.get(0).setAffichage(35, color(63, 76, 107), color(255, 255, 255), 1);

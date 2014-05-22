@@ -56,24 +56,25 @@ class Satellite{
   void setValeurParPosition(){
     if(mouseY > pmouseY){
       if(this.valeur < angleFin){
-        this.valeur = this.valeur + 4;
+        this.valeur++;
       }
     }
     if(mouseX < pmouseX){
       if(this.valeur < angleFin){
-        this.valeur = this.valeur + 4;
+        this.valeur++;
       }
     }
     if(mouseY < pmouseY){
       if(this.valeur > angleDepart){
-        this.valeur = this.valeur - 4;
+        this.valeur--;
       }
     }
     if(mouseX > pmouseX){
       if(this.valeur > angleDepart){
-        this.valeur = this.valeur - 4;
+        this.valeur--;
       }
     }
+    print(this.valeur);
   }
   
   /*------------------------------------------- FUNCTIONS */ 
