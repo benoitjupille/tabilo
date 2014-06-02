@@ -228,11 +228,45 @@ void setup() {
   boxes.get(11).satellites.get(1).setValeur(0);
   boxes.get(11).satellites.get(1).setCouleur(color(0, 168, 171));
   
-  // modulo1 linkedTo perc 3
+  // modulo1 linkedTo perc 4
   modulos.add(new Modulo("modulo1"));
   modulos.get(11).autoPosition(boxes.get(11), 1);
   modulos.get(11).setAffichage(35, color(250, 250, 250), color(76, 184, 72), 2);
   modulos.get(11).setLinkedTo(11);
+  
+  // Musicbox 12 : perc5
+  boxes.add(new Musicbox("perc5"));
+  boxes.get(12).initPosition(width-160, 60);
+  boxes.get(12).setForce(7);
+  boxes.get(12).setAffichage(35, color(136, 136, 136), color(136, 136, 136), 8);
+  boxes.get(12).satellites.add(new Satellite("Cutoff"));
+  boxes.get(12).satellites.get(0).setValeur(127);
+  boxes.get(12).satellites.add(new Satellite("Delay"));
+  boxes.get(12).satellites.get(1).setValeur(0);
+  boxes.get(12).satellites.get(1).setCouleur(color(0, 168, 171));
+  
+  // modulo1 linkedTo perc 4
+  modulos.add(new Modulo("modulo1"));
+  modulos.get(12).autoPosition(boxes.get(12), 4);
+  modulos.get(12).setAffichage(35, color(250, 250, 250), color(136, 136, 136), 2);
+  modulos.get(12).setLinkedTo(12);
+  
+  // Musicbox 13 : perc6
+  boxes.add(new Musicbox("perc6"));
+  boxes.get(13).initPosition(width-60, 60);
+  boxes.get(13).setForce(7);
+  boxes.get(13).setAffichage(35, color(136, 136, 136), color(136, 136, 136), 8);
+  boxes.get(13).satellites.add(new Satellite("Cutoff"));
+  boxes.get(13).satellites.get(0).setValeur(127);
+  boxes.get(13).satellites.add(new Satellite("Delay"));
+  boxes.get(13).satellites.get(1).setValeur(0);
+  boxes.get(13).satellites.get(1).setCouleur(color(0, 168, 171));
+  
+  // modulo1 linkedTo perc 6
+  modulos.add(new Modulo("modulo1"));
+  modulos.get(13).autoPosition(boxes.get(13), 3);
+  modulos.get(13).setAffichage(35, color(250, 250, 250), color(136, 136, 136), 2);
+  modulos.get(13).setLinkedTo(13);
 }
 
 void draw(){
