@@ -12,6 +12,7 @@ class Modulo extends Musicbox{
   float valeurMax = 127.0;
   float coefficientX;
   float coefficientY;
+  int force=12;
   
   boolean grilleY;
   boolean grilleX;
@@ -112,6 +113,8 @@ class Modulo extends Musicbox{
     
     if(this.grilleX){
       this.valeurX = this.grilleValeurX[this.valeurX];
+    }else{
+      this.valeurX = this.valeurX * this.force;
     }
     
     setPdParmX(_musicbox.nom, this.nom, valeurX);

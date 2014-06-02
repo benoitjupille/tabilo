@@ -6,6 +6,7 @@ class Satellite{
   
   /*-------------------------------------------  VARIABLES */
   float valeur; // Valeur du paramètre
+  float valeurMs; // Valeur du paramètre en milliseconds. Il prend le dessus sur "valeur" s'il est > 0
   String nom; // Nom du paramètre [important] à renseigner absolument pour que Pure Data sache de quel élément il s'agit
   boolean locked; // Si on a positionné le curseur sur l'objet et que l'on a la souris "pressed" => donc que le paramètre est en train d'être modifié
   PVector vecteur; // On utilise un objet de la classe PVector, pour bénéficier des variables de position et des fonctions comme dist(vecteur1, vecteur2)
@@ -21,6 +22,7 @@ class Satellite{
     this.nom = _nom;
     this.locked = false;
     this.valeur = 80;
+    this.valeurMs=0;
     
     this.vecteur = new PVector();
     this.couleur = color(168, 26, 26);
@@ -74,7 +76,6 @@ class Satellite{
         this.valeur--;
       }
     }
-    print(this.valeur);
   }
   
   /*------------------------------------------- FUNCTIONS */ 
@@ -94,6 +95,11 @@ class Satellite{
     noStroke();
     fill(this.couleur,180);
     ellipse(this.vecteur.x, this.vecteur.y, this.diametre, this.diametre);
+  }
+  
+  void midiToMs(int _tempo){
+    float pourcentage=(this.valeur/127)*100;
+    this.valeurMs=(pourcentage*(60000/_tempo))/100;
   }
   
   /*------------------------------------------- BOOLEENS */

@@ -137,7 +137,7 @@ void setup() {
   // Musicbox 4 : kick1
   boxes.add(new Musicbox("kick1"));
   boxes.get(4).initPosition(160, height-160);
-  boxes.get(4).setForce(1);
+  boxes.get(4).setForce(0.5);
   boxes.get(4).satellites.add(new Satellite("Delay"));
   boxes.get(4).satellites.get(0).setValeur(0);
   boxes.get(4).satellites.get(0).setCouleur(color(0, 168, 171));
@@ -145,7 +145,7 @@ void setup() {
   // Musicbox 5 : kick2
   boxes.add(new Musicbox("kick2"));
   boxes.get(5).initPosition(60, height-160);
-  boxes.get(5).setForce(1);
+  boxes.get(5).setForce(0.5);
   boxes.get(5).satellites.add(new Satellite("Delay"));
   boxes.get(5).satellites.get(0).setValeur(0);
   boxes.get(5).satellites.get(0).setCouleur(color(0, 168, 171));
@@ -153,7 +153,7 @@ void setup() {
   // Musicbox 6 : kick3
   boxes.add(new Musicbox("kick3"));
   boxes.get(6).initPosition(160, height-60);
-  boxes.get(6).setForce(1);
+  boxes.get(6).setForce(0.5);
   boxes.get(6).satellites.add(new Satellite("Delay"));
   boxes.get(6).satellites.get(0).setValeur(0);
   boxes.get(6).satellites.get(0).setCouleur(color(0, 168, 171));
@@ -161,7 +161,7 @@ void setup() {
   // Musicbox 7 : kick4
   boxes.add(new Musicbox("kick4"));
   boxes.get(7).initPosition(60, height-60);
-  boxes.get(7).setForce(1);
+  boxes.get(7).setForce(0.5);
   boxes.get(7).satellites.add(new Satellite("Delay"));
   boxes.get(7).satellites.get(0).setValeur(0);
   boxes.get(7).satellites.get(0).setCouleur(color(0, 168, 171));
@@ -196,9 +196,43 @@ void setup() {
   
   // modulo1 linkedTo perc 2
   modulos.add(new Modulo("modulo1"));
-  modulos.get(9).autoPosition(boxes.get(9), 1);
+  modulos.get(9).autoPosition(boxes.get(9), 2);
   modulos.get(9).setAffichage(35, color(250, 250, 250), color(76, 184, 72), 2);
   modulos.get(9).setLinkedTo(9);
+  
+  // Musicbox 10 : perc3
+  boxes.add(new Musicbox("perc3"));
+  boxes.get(10).initPosition(width-160, height-60);
+  boxes.get(10).setForce(7);
+  boxes.get(10).setAffichage(35, color(76, 184, 72), color(0, 114, 45), 8);
+  boxes.get(10).satellites.add(new Satellite("Cutoff"));
+  boxes.get(10).satellites.get(0).setValeur(127);
+  boxes.get(10).satellites.add(new Satellite("Delay"));
+  boxes.get(10).satellites.get(1).setValeur(0);
+  boxes.get(10).satellites.get(1).setCouleur(color(0, 168, 171));
+  
+  // modulo1 linkedTo perc 3
+  modulos.add(new Modulo("modulo1"));
+  modulos.get(10).autoPosition(boxes.get(9), 3);
+  modulos.get(10).setAffichage(35, color(250, 250, 250), color(76, 184, 72), 2);
+  modulos.get(10).setLinkedTo(10);
+  
+  // Musicbox 11 : perc4
+  boxes.add(new Musicbox("perc4"));
+  boxes.get(11).initPosition(width-60, height-60);
+  boxes.get(11).setForce(7);
+  boxes.get(11).setAffichage(35, color(76, 184, 72), color(0, 114, 45), 8);
+  boxes.get(11).satellites.add(new Satellite("Cutoff"));
+  boxes.get(11).satellites.get(0).setValeur(127);
+  boxes.get(11).satellites.add(new Satellite("Delay"));
+  boxes.get(11).satellites.get(1).setValeur(0);
+  boxes.get(11).satellites.get(1).setCouleur(color(0, 168, 171));
+  
+  // modulo1 linkedTo perc 3
+  modulos.add(new Modulo("modulo1"));
+  modulos.get(11).autoPosition(boxes.get(9), 4);
+  modulos.get(11).setAffichage(35, color(250, 250, 250), color(76, 184, 72), 2);
+  modulos.get(11).setLinkedTo(11);
 }
 
 void draw(){
@@ -290,6 +324,9 @@ void mouseDragged(){
         sat = box.satellites.get(k);
         if(sat.locked){
           sat.setValeurParPosition();
+          if(sat.nom=="Delay"){
+            sat.midiToMs(generals.get(0).valeurX);
+          }
         }
       }
     }
@@ -340,6 +377,5 @@ void mouseReleased(){
     general.locked = false;
   }
 }
-
 
 

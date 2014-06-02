@@ -178,7 +178,11 @@ class Musicbox{
       for(int i=0; i<this.satellites.size(); i++){
         sat = this.satellites.get(i);
         sat.render(this.vecteur, this.diametreCeinture * (i+1), i); // Chaque nouveau paramètre est dessiné sur une ceinture plus grande
-        this.setPdParm(this.nom, sat.nom, sat.valeur);
+        if(sat.valeurMs==0){
+          this.setPdParm(this.nom, sat.nom, sat.valeur);
+        }else{
+          this.setPdParm(this.nom, sat.nom, sat.valeurMs);
+        }
       }
     }
   }
