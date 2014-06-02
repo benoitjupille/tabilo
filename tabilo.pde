@@ -40,7 +40,7 @@ void setup() {
   /* Musicboxes */
   // Musicbox 0 : oscillateur
   boxes.add(new Musicbox("osc1"));
-  boxes.get(0).initPosition(195, 195);
+  boxes.get(0).initPosition(width-160, height-160);
   boxes.get(0).setForce(4);
   boxes.get(0).setAffichage(35, color(229, 121, 30), color(229, 121, 30), 8);
   boxes.get(0).satellites.add(new Satellite("Cutoff"));
@@ -50,21 +50,21 @@ void setup() {
 
   // modulo1 linkedTo oscillateur 1 : notes
   modulos.add(new Modulo("modulo1"));
-  modulos.get(0).autoPosition(boxes.get(0), 4);
+  modulos.get(0).autoPosition(boxes.get(0), 1);
   modulos.get(0).setAffichage(35, color(250, 250, 250), color(229, 121, 30), 3);
   modulos.get(0).setLinkedTo(0);
   modulos.get(0).setGrilleNotesX(32);
   
   // modulo2 linkedTo oscillateur 1 : X=decay Y=Attack
   modulos.add(new Modulo("modulo2"));
-  modulos.get(1).autoPosition(boxes.get(0), 3);
+  modulos.get(1).autoPosition(boxes.get(0), 2);
   modulos.get(1).setAffichage(35, color(250, 250, 250), color(90, 71, 29), 3);
   modulos.get(1).setLinkedTo(0);
   
   
   // Musicbox 1 : oscillateur 2
   boxes.add(new Musicbox("osc2"));
-  boxes.get(1).initPosition(60, 195);
+  boxes.get(1).initPosition(width-60, height-160);
   boxes.get(1).setForce(4);
   boxes.get(1).setAffichage(35, color(229, 121, 30), color(229, 121, 30), 8);
   boxes.get(1).satellites.add(new Satellite("Cutoff"));
@@ -74,21 +74,21 @@ void setup() {
   
   // modulo1 linkedTo oscillateur 2
   modulos.add(new Modulo("modulo1"));
-  modulos.get(2).autoPosition(boxes.get(1), 4);
+  modulos.get(2).autoPosition(boxes.get(1), 1);
   modulos.get(2).setAffichage(35, color(250, 250, 250), color(229, 121, 30), 2);
   modulos.get(2).setLinkedTo(1);
   modulos.get(2).setGrilleNotesX(32);
   
   // modulo2 linkedTo oscillateur 2 : X=decay Y=Attack
   modulos.add(new Modulo("modulo2"));
-  modulos.get(3).autoPosition(boxes.get(1), 3);
+  modulos.get(3).autoPosition(boxes.get(1), 2);
   modulos.get(3).setAffichage(35, color(250, 250, 250), color(90, 71, 29), 3);
   modulos.get(3).setLinkedTo(1);
   
   
   // Musicbox 2 : oscillateur 3
   boxes.add(new Musicbox("osc3"));
-  boxes.get(2).initPosition(195, 60);
+  boxes.get(2).initPosition(width-160, height-60);
   boxes.get(2).setForce(4);
   boxes.get(2).setAffichage(35, color(229, 121, 30), color(229, 121, 30), 8);
   boxes.get(2).satellites.add(new Satellite("Cutoff"));
@@ -98,21 +98,21 @@ void setup() {
   
   // modulo1 linkedTo oscillateur 3
   modulos.add(new Modulo("modulo1"));
-  modulos.get(4).autoPosition(boxes.get(2), 1);
+  modulos.get(4).autoPosition(boxes.get(2), 4);
   modulos.get(4).setAffichage(35, color(250, 250, 250), color(229, 121, 30), 2);
   modulos.get(4).setLinkedTo(2);
   modulos.get(4).setGrilleNotesX(32);
   
   // modulo2 linkedTo oscillateur 2 : X=decay Y=Attack
   modulos.add(new Modulo("modulo2"));
-  modulos.get(5).autoPosition(boxes.get(2), 2);
+  modulos.get(5).autoPosition(boxes.get(2), 3);
   modulos.get(5).setAffichage(35, color(250, 250, 250), color(90, 71, 29), 3);
   modulos.get(5).setLinkedTo(2);
   
   
   // Musicbox 3 : oscillateur 4
   boxes.add(new Musicbox("osc4"));
-  boxes.get(3).initPosition(60, 60);
+  boxes.get(3).initPosition(width-60, height-60);
   boxes.get(3).setForce(4);
   boxes.get(3).setAffichage(35, color(229, 121, 30), color(229, 121, 30), 8);
   boxes.get(3).satellites.add(new Satellite("Cutoff"));
@@ -122,14 +122,14 @@ void setup() {
   
   // modulo1 linkedTo oscillateur 4
   modulos.add(new Modulo("modulo1"));
-  modulos.get(6).autoPosition(boxes.get(3), 1);
+  modulos.get(6).autoPosition(boxes.get(3), 4);
   modulos.get(6).setAffichage(35, color(250, 250, 250), color(229, 121, 30), 2);
   modulos.get(6).setLinkedTo(3);
   modulos.get(6).setGrilleNotesX(32);
   
   // modulo2 linkedTo oscillateur 2 : X=decay Y=Attack
   modulos.add(new Modulo("modulo2"));
-  modulos.get(7).autoPosition(boxes.get(3), 2);
+  modulos.get(7).autoPosition(boxes.get(3), 3);
   modulos.get(7).setAffichage(35, color(250, 250, 250), color(90, 71, 29), 3);
   modulos.get(7).setLinkedTo(3);
   
@@ -168,7 +168,7 @@ void setup() {
   
   // Musicbox 8 : perc1
   boxes.add(new Musicbox("perc1"));
-  boxes.get(8).initPosition(width-160, height-160);
+  boxes.get(8).initPosition(160, 160);
   boxes.get(8).setForce(7);
   boxes.get(8).setAffichage(35, color(76, 184, 72), color(0, 114, 45), 8);
   boxes.get(8).satellites.add(new Satellite("Cutoff"));
@@ -179,13 +179,13 @@ void setup() {
   
   // modulo1 linkedTo perc 1
   modulos.add(new Modulo("modulo1"));
-  modulos.get(8).autoPosition(boxes.get(8), 1);
+  modulos.get(8).autoPosition(boxes.get(8), 3);
   modulos.get(8).setAffichage(35, color(250, 250, 250), color(76, 184, 72), 2);
   modulos.get(8).setLinkedTo(8);
   
   // Musicbox 9 : perc2
   boxes.add(new Musicbox("perc2"));
-  boxes.get(9).initPosition(width-60, height-160);
+  boxes.get(9).initPosition(60, 160);
   boxes.get(9).setForce(7);
   boxes.get(9).setAffichage(35, color(76, 184, 72), color(0, 114, 45), 8);
   boxes.get(9).satellites.add(new Satellite("Cutoff"));
@@ -196,13 +196,13 @@ void setup() {
   
   // modulo1 linkedTo perc 2
   modulos.add(new Modulo("modulo1"));
-  modulos.get(9).autoPosition(boxes.get(9), 2);
+  modulos.get(9).autoPosition(boxes.get(9), 4);
   modulos.get(9).setAffichage(35, color(250, 250, 250), color(76, 184, 72), 2);
   modulos.get(9).setLinkedTo(9);
   
   // Musicbox 10 : perc3
   boxes.add(new Musicbox("perc3"));
-  boxes.get(10).initPosition(width-160, height-60);
+  boxes.get(10).initPosition(160, 60);
   boxes.get(10).setForce(7);
   boxes.get(10).setAffichage(35, color(76, 184, 72), color(0, 114, 45), 8);
   boxes.get(10).satellites.add(new Satellite("Cutoff"));
@@ -213,13 +213,13 @@ void setup() {
   
   // modulo1 linkedTo perc 3
   modulos.add(new Modulo("modulo1"));
-  modulos.get(10).autoPosition(boxes.get(9), 3);
+  modulos.get(10).autoPosition(boxes.get(10), 2);
   modulos.get(10).setAffichage(35, color(250, 250, 250), color(76, 184, 72), 2);
   modulos.get(10).setLinkedTo(10);
   
   // Musicbox 11 : perc4
   boxes.add(new Musicbox("perc4"));
-  boxes.get(11).initPosition(width-60, height-60);
+  boxes.get(11).initPosition(60, 60);
   boxes.get(11).setForce(7);
   boxes.get(11).setAffichage(35, color(76, 184, 72), color(0, 114, 45), 8);
   boxes.get(11).satellites.add(new Satellite("Cutoff"));
@@ -230,7 +230,7 @@ void setup() {
   
   // modulo1 linkedTo perc 3
   modulos.add(new Modulo("modulo1"));
-  modulos.get(11).autoPosition(boxes.get(9), 4);
+  modulos.get(11).autoPosition(boxes.get(11), 1);
   modulos.get(11).setAffichage(35, color(250, 250, 250), color(76, 184, 72), 2);
   modulos.get(11).setLinkedTo(11);
 }
@@ -379,6 +379,6 @@ void mouseReleased(){
 }
 
 boolean sketchFullScreen() {
-  return false;
+  return true;
 }
 
