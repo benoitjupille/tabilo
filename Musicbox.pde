@@ -110,9 +110,15 @@ class Musicbox{
     this.setPdParm(this.nom, "Volume", this.volume);
   }
   
-  void eviteCollision(Musicbox _other){
-    if(dist(this.vecteur.x + this.rayon, this.vecteur.y + this.rayon, _other.vecteur.x + _other.rayon, _other.vecteur.y + _other.rayon) == 0){
-      println("collision");
+  void collisionEcran(){
+    // X
+    if((this.vecteur.x + this.rayon + this.epaisseurStroke - width==0) || (this.vecteur.x - this.rayon - this.epaisseurStroke==0)){
+      this.vitesseX*=-1;
+    }
+    
+    // Y
+    if((this.vecteur.y + this.rayon + this.epaisseurStroke - height==0) || (this.vecteur.y - this.rayon - this.epaisseurStroke==0)){
+      this.vitesseY*=-1;
     }
   }
   
@@ -158,6 +164,7 @@ class Musicbox{
         this.vitesseY = this.vitesseY * this.velocite;
         this.setPosition(this.vecteur.x, this.vecteur.y + this.vitesseY);
       }
+      this.collisionEcran();
     }
   }
   

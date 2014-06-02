@@ -17,7 +17,7 @@ void setup() {
   pd.start();
   
   // Graphisme
-  size(displayWidth - 30, displayHeight - 60);
+  size(displayWidth, displayHeight);
   smooth(2);
   frameRate(30);
   
@@ -378,4 +378,7 @@ void mouseReleased(){
   }
 }
 
+boolean sketchFullScreen() {
+  return false;
+}
 

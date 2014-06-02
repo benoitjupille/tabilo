@@ -1,4 +1,4 @@
-#N canvas 110 46 1091 702 10;
+#N canvas 58 22 1091 702 10;
 #X obj 1817 156 dac~;
 #X obj -506 94 *~;
 #X obj -225 -48 line~;
@@ -123,7 +123,7 @@
 #X text 844 -222 Decay;
 #X text 946 -223 Volume;
 #X text 728 -221 Attack;
-#N canvas 789 41 485 438 enveloppe 0;
+#N canvas 135 48 485 438 enveloppe 0;
 #X obj 14 8 inlet;
 #X obj 64 8 inlet;
 #X obj 28 232 line~;
